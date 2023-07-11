@@ -13,11 +13,6 @@ struct IntroView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Hybrid Calisthenics App")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
-                
                 Text("Select Routine:")
                     .font(.headline)
                     .padding()
@@ -49,6 +44,7 @@ struct IntroView: View {
                 
                 Spacer()
             }
+            .navigationBarTitle("Hybrid Calisthenics")
         }
     }
 }
