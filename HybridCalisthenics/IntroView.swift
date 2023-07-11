@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct IntroView: View {
+    @State var isRoutineTapped = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -16,7 +18,6 @@ struct IntroView: View {
                     .bold()
                     .padding()
                 
-                // Routine selection component
                 Text("Select Routine:")
                     .font(.headline)
                     .padding()
@@ -37,19 +38,16 @@ struct IntroView: View {
                 .cornerRadius(10)
                 .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
                 .padding(.bottom, 16)
+                .onTapGesture {
+                    isRoutineTapped = true
+                }
                 
-                // Here, you can add a picker or any other component to allow the user to select the routine
                 
                 Spacer()
                 
-                NavigationLink(destination: ReminderView()) {
-                    Text("Next")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
+                NavigationLink(destination: ReminderView(), isActive: $isRoutineTapped) { }
+                
+                Spacer()
             }
         }
     }
